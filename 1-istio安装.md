@@ -64,7 +64,7 @@ kubectl label namespace default istio-injection=enabled
   Taints:    node-role.kubernetes.io/master:NoSchedule
   
   # 删除污点
-  kubectl taint nodes --all node-role.kubernetes.io/master
+  kubectl taint nodes --all node-role.kubernetes.io/master-
   
   # 让master节点参与调度，#如果想删除，把=换成-
   kubectl label nodes k8s-master node-role.kubernetes.io/worker=
@@ -145,19 +145,19 @@ istio-ingressgateway   LoadBalancer   10.1.251.189   <pending>     15021:30475/T
 
 1. 安装插件
 
-```
-$ kubectl apply -f samples/addons
-$ kubectl rollout status deployment/kiali -n istio-system
-Waiting for deployment "kiali" rollout to finish: 0 of 1 updated replicas are available...
-deployment "kiali" successfully rolled out
-```
+   ```
+   $ kubectl apply -f samples/addons
+   $ kubectl rollout status deployment/kiali -n istio-system
+   Waiting for deployment "kiali" rollout to finish: 0 of 1 updated replicas are available...
+   deployment "kiali" successfully rolled out
+   ```
 
 2. 访问 Kiali 仪表板。
 
-```
-$ istioctl dashboard kiali
-http://localhost:20001/kiali
-```
+   ```
+   $ istioctl dashboard kiali
+   http://localhost:20001/kiali
+   ```
 
 3. 查看 kiali服务
 
